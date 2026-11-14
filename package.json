@@ -52,5 +52,13 @@
     "tsx": "^4.23.15",
     "typescript": "^5.9.3",
     "vitest": "^5.0.5"
+  },
+  "homepage": "https://yieldproof-mezo.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/happypapa636/YieldProof.git"
+  },
+  "bugs": {
+    "url": "https://github.com/happypapa636/YieldProof/issues"
   }
 }
