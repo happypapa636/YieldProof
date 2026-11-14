@@ -1,0 +1,26 @@
+# deps
+node_modules
+# next
+.next
+out
+next-env.d.ts
+*.tsbuildinfo
+# env & secrets
+.env*
+!.env.example
+*.pem
+*.key
+secret.tmp
+# vercel
+.vercel
+# misc
+coverage
+cache
+.DS_Store
+npm-debug.log*
+
+.vercel
+.env*
+
+# local browser-test artifacts
+.playwright-mcp

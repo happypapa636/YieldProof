@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+/*
+ * YieldProof design tokens: neutral charcoal + two signal colours.
+ *   green = what you keep (positive, verified, primary action)
+ *   red   = what you lose (costs, negative, high risk)
+ * Caution states are neutral with an icon; there is no third hue.
+ * Keep in sync with src/lib/palette.ts.
+ */
+@theme {
+  --color-ground: #0f1011;
+  --color-surface: #151618;
+  --color-raised: #1c1d20;
+  --color-sunk: #0b0c0d;
+  --color-line: #26282b;
+  --color-line-strong: #36383c;
+  --color-ink: #ededea;
+  --color-ink-2: #c2c3c0;
+  --color-muted: #9a9c9b;
+  --color-faint: #7d7f81;
+  --color-pos: #3fb68b;
+  --color-pos-soft: #132a20;
+  --color-neg: #e5615a;
+  --color-neg-soft: #2c1615;
+
+  --font-display: var(--font-newsreader), "Iowan Old Style", Georgia, serif;
+  --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  background: var(--color-ground);
+  color: var(--color-ink);
+}
+
+body {
+  font-family: var(--font-sans);
+  font-feature-settings: "tnum" 1, "lnum" 1;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-pos);
+  color: var(--color-sunk);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-pos);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+.figure {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-faint);
+}
+
+.prose-yp p {
+  max-width: 68ch;
+  line-height: 1.65;
+  color: var(--color-ink-2);
+}
+
+/* Flat surfaces: a fill and a hairline, no shadows or gradients. */
+.panel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+}
+
+.panel-sunk {
+  background: var(--color-sunk);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+}
+
+.hairline {
+  border-color: var(--color-line);
+}
+
+/* Range inputs: neutral track, green thumb. */
+input[type="range"] {
+  accent-color: var(--color-pos);
+  cursor: pointer;
+}
+
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%239a9c9b' stroke-width='1.4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}
+
+/* Scrollbars that do not shout. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-line-strong) transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+@media print {
+  html,
+  body {
+    background: #fff !important;
+    color: #111 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .panel {
+    background: #fff !important;
+    border-color: #ccc !important;
+  }
+}
