@@ -155,6 +155,17 @@ npm run snapshot                                # optional: first fee scan + sna
 npm run build && npm start                      # or: npm run dev
 ```
 
+### npm scripts
+
+| Script | What it does |
+|---|---|
+| `dev` / `build` / `start` | Next.js dev server, production build, production server |
+| `lint` / `typecheck` / `test` | ESLint, `tsc --noEmit`, Vitest unit tests |
+| `check` | All three above, as CI runs them |
+| `db:migrate` | Create or update the `yieldproof` Postgres schema (idempotent) |
+| `snapshot` | Run the daily cron job locally: fee scans, snapshots, alerts |
+| `e2e` | End-to-end suite against `BASE_URL` (see Testing) |
+
 ### Environment variables (`.env.example`)
 
 | Variable | Purpose |
