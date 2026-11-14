@@ -32,6 +32,7 @@ describe("display formatting", () => {
     expect(fmtCompact(120_000)).toBe("120K");
     expect(fmtUsdCompact(120_000)).toBe("$120K");
     expect(fmtUsdCompact(2_345_678)).toBe("$2.35M");
+    expect(fmtUsdCompact(-2_345_678)).toBe("-$2.35M");
   });
 
   it("describes age relative to a fixed clock", () => {

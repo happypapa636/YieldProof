@@ -20,7 +20,7 @@ export function fmtMusd(v: number | null | undefined, dp = 2, signed = false): s
 
 export function fmtUsdCompact(v: number | null | undefined): string {
   if (v === null || v === undefined || !Number.isFinite(v)) return "Unavailable";
-  return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", notation: "compact", maximumFractionDigits: v >= 1e6 ? 2 : 1 }).format(v);
+  return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", notation: "compact", maximumFractionDigits: Math.abs(v) >= 1e6 ? 2 : 1 }).format(v);
 }
 
 export function fmtCompact(v: number | null | undefined): string {
