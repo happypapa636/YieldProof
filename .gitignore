@@ -19,8 +19,5 @@ cache
 .DS_Store
 npm-debug.log*
 
-.vercel
-.env*
-
 # local browser-test artifacts
 .playwright-mcp
