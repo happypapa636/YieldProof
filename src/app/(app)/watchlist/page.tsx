@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { WatchlistClient } from "@/components/personal";
 import { PageHeader } from "@/components/shell";
 
-export const metadata: Metadata = { title: "Watchlist & alerts" };
+export const metadata: Metadata = { title: "Watchlist & alerts", robots: { index: false } };
 
 export default function Page() {
   return (

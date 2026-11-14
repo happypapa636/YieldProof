@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { PortfolioClient } from "@/components/personal";
 import { PageHeader } from "@/components/shell";
 
-export const metadata: Metadata = { title: "Portfolio" };
+export const metadata: Metadata = { title: "Portfolio", robots: { index: false } };
 
 export default function Page() {
   return (
