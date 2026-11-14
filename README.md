@@ -138,6 +138,22 @@ YieldProof **does not deploy a contract** (the spec says not to create one merel
 | StabilityPool | [0x1CCA7E410eE41739792eA0A24e00349Dd247680e](https://explorer.test.mezo.org/address/0x1CCA7E410eE41739792eA0A24e00349Dd247680e) |
 | InterestRateManager | [0xD4D6c36A592A2c5e86035A6bca1d57747a567f37](https://explorer.test.mezo.org/address/0xD4D6c36A592A2c5e86035A6bca1d57747a567f37) |
 
+## Project layout
+
+```
+src/app/(app)/      pages: dashboard, opportunities, compare, risk, history, musd, sources, portfolio, ...
+src/app/api/        route handlers: SIWE auth, watchlist, comparisons, alerts, CSV, portfolio, OG, cron
+src/components/     UI: charts, tables, projection + waterfall, testnet Stability Pool actions
+src/config/         chains, contract addresses, wagmi
+src/lib/engine/     pure maths: returns, rates, leverage, liquidity, risk, confidence, CSV
+src/lib/data/       DefiLlama + on-chain adapters, registry, dataset assembly
+src/lib/model/      projections, comparisons, alerts, plain-language explanations
+src/lib/db/         Neon client, queries, schema.sql
+src/lib/jobs/       the daily snapshot job
+scripts/            migrate, snapshot, e2e
+tests/              Vitest unit tests
+```
+
 ## Tech stack
 
 Next.js 16 (App Router, Turbopack) · React 19 · TypeScript strict · Tailwind CSS v4 · Radix primitives · wagmi 2 + viem 2 + TanStack Query · Recharts · decimal.js · zod · jose · Neon Postgres (`@neondatabase/serverless`) · Vitest · Vercel (Cron, Analytics).
